@@ -144,4 +144,22 @@ export const Mutation = {
     return db.categories[index];
   },
 
+  updateProduct: (
+    parent: TProductParent,
+    args: TProductArgs,
+    { db }: TProductContext
+  ) => {
+    const { id, input } = args;
+
+    const index = db.products.findIndex((product) => product.id === id);
+
+    if (index === -1) return null;
+
+    db.products[index] = {
+      ...db.products[index],
+      ...input,
+    };
+
+    return db.products[index];
+  },
 };
