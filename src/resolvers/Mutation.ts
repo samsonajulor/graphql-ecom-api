@@ -99,4 +99,21 @@ export const Mutation = {
     }) as IProduct[];
     return true;
   },
+
+  deleteProduct: (
+    parent: TProductParent,
+    args: TProductArgs,
+    { db }: TProductContext
+  ) => {
+    const id = args.id;
+
+    const product = db.products.find((product) => product.id === id);
+
+    if (!product) return;
+
+    db.products = db.products.filter((product) => product.id !== id);
+    db.reviews = db.reviews.filter((review) => review.productId !== id);
+
+    return true;
+  },
 };
