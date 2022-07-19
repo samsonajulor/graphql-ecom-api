@@ -116,4 +116,13 @@ export const Mutation = {
 
     return true;
   },
+  
+  deleteReview: (
+    parent: TProductParent,
+    args: TProductArgs,
+    { db }: TProductContext
+  ) => {
+    const id = args.id;
+    db.reviews = db.reviews.filter((review) => review.id !== id);
+  },
 };
