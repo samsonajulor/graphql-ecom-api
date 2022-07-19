@@ -28,4 +28,31 @@ export const Mutation = {
 
     return newCategory;
   },
+
+  addProduct: (
+    parent: TProductParent,
+    args: { input: IProduct },
+    { db }: TProductContext
+  ) => {
+    const { name, description, quantity, onSale, price, image, categoryId } =
+      args.input;
+
+    const category = db.categories.filter((cat) => cat.id === categoryId);
+    if (category.length <= 0) return;
+
+    const newProduct = {
+      id: uuid(),
+      name,
+      description,
+      quantity,
+      onSale,
+      price,
+      image,
+      categoryId,
+    };
+
+    db.products.push(newProduct);
+
+    return newProduct;
+  },
 };
