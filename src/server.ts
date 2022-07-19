@@ -1,5 +1,6 @@
 import { ApolloServer } from 'apollo-server';
 import { Category } from './resolvers/Category';
+import { Mutation } from './resolvers/Mutation';
 import db from './db';
 
 const server: ApolloServer = new ApolloServer({
@@ -7,6 +8,7 @@ const server: ApolloServer = new ApolloServer({
     Category,
   },
   context: {
+    Mutation,
     db
   },
 });
