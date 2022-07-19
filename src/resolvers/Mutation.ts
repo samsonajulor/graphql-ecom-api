@@ -55,4 +55,25 @@ export const Mutation = {
 
     return newProduct;
   },
+
+  addReview: (
+    parent: TProductParent,
+    args: { input: TReview },
+    { db }: TProductContext
+  ) => {
+    const { date, title, comment, rating, productId } = args.input;
+
+    const newReview = {
+      id: uuid(),
+      date,
+      title,
+      comment,
+      rating,
+      productId,
+    };
+
+    db.reviews.push(newReview);
+
+    return newReview;
+  },
 };
