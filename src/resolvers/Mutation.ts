@@ -76,4 +76,27 @@ export const Mutation = {
 
     return newReview;
   },
+
+  deleteCategory: (
+    parent: TProductParent,
+    args: TCategoryArgs,
+    { db }: TProductContext
+  ) => {
+    let id = args.id;
+
+    const category = db.categories.find((category) => category.id === id);
+
+    if (!category) return false;
+
+    db.categories = db.categories.filter((category) => category.id !== id);
+    db.products = db.products.map((product) => {
+      if (product.categoryId === id)
+        return {
+          ...product,
+          categoryId: null,
+        };
+      else return product;
+    }) as IProduct[];
+    return true;
+  },
 };
