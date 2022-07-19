@@ -1,0 +1,30 @@
+{
+  "name": "graphql-ecom-api",
+  "version": "1.0.0",
+  "description": "an API using graphql and typescript",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon dist/server.js",
+    "compile": "tsc -w"
+  },
+  "author": "Samson Ajulor",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2"
+  },
+  "dependencies": {
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.3.0",
+    "typescript": "^4.6.3",
+    "uuid": "^8.3.2"
+  }
+}
