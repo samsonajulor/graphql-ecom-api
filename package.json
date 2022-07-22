@@ -4,7 +4,7 @@
   "description": "an API using graphql and typescript",
   "main": "index.js",
   "scripts": {
-    "start": "yarn tsc && node dist/server.js",
+    "start": "node dist/server.js",
     "build": "yarn tsc",
     "dev": "nodemon dist/server.js",
     "heroku-prebuild": "rm -rf node_modules; yarn cache clean; export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development yarn",
