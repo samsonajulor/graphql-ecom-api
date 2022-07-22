@@ -7,6 +7,8 @@
     "start": "yarn run build && node dist/server.js",
     "build": "rimraf ./dist && tsc",
     "dev": "nodemon dist/server.js",
+    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
+    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true",
     "compile": "tsc -w"
   },
   "author": "Samson Ajulor",
