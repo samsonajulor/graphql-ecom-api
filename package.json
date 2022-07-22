@@ -7,7 +7,7 @@
     "start": "yarn tsc && node dist/server.js",
     "build": "yarn tsc",
     "dev": "nodemon dist/server.js",
-    "heroku-prebuild": "rm -rf node_modules; yarn cache clean; export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development yarn --only=dev --dev",
+    "heroku-prebuild": "rm -rf node_modules; yarn cache clean; export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development yarn tsc",
     "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true export NODE_ENV=production;",
     "compile": "tsc -w"
   },
