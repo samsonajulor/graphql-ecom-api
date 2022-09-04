@@ -2,7 +2,7 @@
   "name": "graphql-ecom-api",
   "version": "1.0.0",
   "description": "an API using graphql and typescript",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node dist/server.js",
     "build": "yarn tsc",
