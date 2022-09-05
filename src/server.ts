@@ -2,7 +2,6 @@ import { ApolloServer } from 'apollo-server';
 import {
   ApolloServerPluginLandingPageGraphQLPlayground
 } from "apollo-server-core";
-import { env } from 'process';
 import typeDefs from './schema';
 import { Category } from './resolvers/Category';
 import { Mutation } from './resolvers/Mutation';
@@ -10,10 +9,7 @@ import { Product } from './resolvers/Product';
 import { Query } from './resolvers/Query';
 import db from './db';
 
-const URL: string = env.NODE_ENV === 'production' ? 'https://sa-graphql-ecom-api.herokuapp.com/grapql/api' : 'http://localhost:5000/grapqhl/api';
-
 const server: ApolloServer = new ApolloServer({
-  uri: URL,
   typeDefs,
   resolvers: {
     Query,
@@ -31,6 +27,9 @@ const server: ApolloServer = new ApolloServer({
   ],
 });
 
-server.listen(process.env.PORT || 5000).then(({ url }) => {
-  console.log('Server running at ' + url);
+server.listen({ port: process.env.PORT || 5000 }).then(({ url }) => {
+  console.log(`
+    🚀  Server is ready at ${url}
+    📭  Query at https://sa-graphql-ecom-api.herokuapp.com/
+  `);
 });
